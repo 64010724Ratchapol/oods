@@ -1,0 +1,88 @@
+class Parking :
+    def __init__(self):
+        self.item = []
+        self.count = 0
+
+    def isEmpty(self):
+         return self.items == []
+
+    def push(self, item):
+         self.item.append(item)
+         self.count += 1
+
+    def dequeue(self):
+        if self.count == 0:
+            print ("Cannot dequeue from an empty queue")
+        else:
+            val = self.items.pop(0)
+            self.count -= 1
+            return val
+
+    def pop(self):
+         return self.items.pop()
+
+    def peek(self):
+        if self.count == 0:
+            print ("Cannot peek from an empty queue")
+        else:    
+            return self.items[0]
+
+    def size(self):
+         return self.count
+
+
+
+q=Parking()
+tq=Parking()
+l=[] 
+reg=[] 
+
+print("******** Parking Lot ********")
+full,all,a_d,n =input("Enter max of car,car in soi,operation : ").split(' ')
+full = int(full)
+lsn_n= n
+m = 0 
+Car = [lsn_n,m] 
+for i in all:
+    if i=='0':
+      reg==[]
+    elif i != ',':
+      reg.append(i)
+#print(reg)
+if a_d=="arrive":  
+        if lsn_n in reg:
+            print("car "+n+" already in soi")
+            u=list(map(int,reg))
+            print(u)
+            
+        else: 
+          if len(reg) < full :       
+            if q.size()<=4:  
+                print("car "+n+" arrive! : Add Car "+n)
+                q.push(Car)
+                reg.append(lsn_n)
+                reg =list(reg)
+                u=list(map(int,reg))
+                print(u)
+          else :
+            print("car "+n+" cannot arrive : Soi Full")
+            u=list(map(int,reg))
+            print(u)
+
+
+elif a_d=="depart": 
+        if reg ==[]:
+            print("car "+n+" cannot depart : Soi Empty")
+            u=list(map(int,reg))
+            print(u)
+        elif lsn_n not in reg: 
+            print("car "+n+" cannot depart : Dont Have Car "+n)
+            u=list(map(int,reg))
+            print(u)
+        
+        else :
+            if lsn_n in all: 
+                print ("car "+n+" depart ! : Car "+n+" was remove")
+                reg.remove(lsn_n)
+                u=list(map(int,reg))
+                print(u)
