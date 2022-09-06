@@ -1,0 +1,51 @@
+class stack :
+    def __init__(self):
+        self.item =[]
+        self.top =-1
+
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, i):
+        self.top+= 1
+        self.item.append(i)
+
+    def pop(self):
+        if self.top ==-1:
+            return
+        else:
+            self.top-= 1
+            return self.item.pop()
+
+    def peek(self):
+         return self.items[len(self.items)-1]
+
+    def size(self):
+         return len(self.items)
+
+    def centralfunc(self, ab):
+        for i in ab:
+            try:
+                self.push(int(i))
+            except ValueError:
+                val1 = self.pop()
+                val2 = self.pop()
+                if i == '/':
+                  self.push(val2 / val1)
+                elif i == '*' :        
+                  self.push(val2 * val1)
+                elif i == '+' :
+                  self.push(val2 + val1)
+                elif i == '-' :
+                  self.push(val2 - val1)
+                elif i == '^' :
+                  self.push(val2 ** val1) 
+        return float(self.pop())
+
+print(" ***Postfix expression calcuation***")
+
+token = list(input("Enter Postfix expression : ").split())
+
+s = stack()
+
+print("Answer : ",'{:.2f}'.format(s.centralfunc(token)))
