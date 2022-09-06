@@ -1,0 +1,106 @@
+open_list = ["[","{","("]
+close_list = ["]","}",")"]
+lll=["[","{","(","]","}",")"]
+def check(myStr):
+    stack = []
+    o =" "
+    for i in myStr:
+        if i in open_list:
+            stack.append(i)
+        elif i in close_list:
+            pos = close_list.index(i)
+            if ((len(stack) > 0) and (open_list[pos] == stack[len(stack)-1])):
+                stack.pop()
+            else:
+                return stack.append(i)
+    if len(stack) == 0:
+        return "MATCH"
+    else :
+        return stack
+
+def checklen(myStr):
+    stack = []
+    o =" "
+    for i in myStr:
+        if i in open_list:
+            stack.append(i)
+        elif i in close_list:
+            pos = close_list.index(i)
+            if ((len(stack) > 0) and (open_list[pos] == stack[len(stack)-1])):
+                stack.pop()
+            else:
+                return stack.append(i)
+    if len(stack) == 0:
+        return ""
+    else :
+        return len(stack)
+
+def prints(stack):
+    for i in range(len(stack)-1, -1, -1):
+        print(stack[i], end='')
+   
+x_o=0
+y_o=0
+z_o=0  
+x=0
+for i in string1 :
+    if i == "(" :
+        x_o+=1
+    elif i == "{" :
+        y_o+=1
+    elif i == "[" :
+        z_o+=1
+    elif i == ")" :
+        x_o-=1
+    elif i == "}" :
+        y_o-=1
+    elif i == "]" :
+        z_o-=1
+
+
+
+
+
+if x_o>0 and y_o>0 and z_o>0  :
+      print(string1+" open paren excess") 
+
+elif x_o<0 and y_o<0 and z_o<0  :
+      print(string1+" close paren excess") 
+ 
+elif (x_o>0 and y_o>0) or (x_o<0 and y_o<0):
+    print(string1+" Unmatch open-close")
+elif (x_o<0 and y_o>0) or (x_o>0 and y_o<0):
+    print(string1+" Unmatch open-close")
+elif (y_o<0 and z_o<0) or (y_o>0 and z_o>0):
+    print(string1+" Unmatch open-close")
+elif (y_o>0 and z_o<0) or (y_o<0 and z_o>0):
+    print(string1+" Unmatch open-close")
+elif (x_o<0 and z_o<0) or (x_o>0 and z_o>0) :
+    print(string1+" Unmatch open-close")
+elif (x_o>0 and z_o<0) or (x_o<0 and z_o>0):
+    print(string1+" Unmatch open-close")
+
+elif x_o>0 :
+    print(string1+" open paren excess   %s :"%(checklen(string1)),end=' ')
+    if i in lll:
+        prints(string1)
+    else :
+        print('(')
+       
+elif x_o<0:
+    print(string1+" close paren excess")
+
+elif y_o>0 :
+    print(string1+" open paren excess")
+
+elif y_o<0 :
+    print(string1+" close paren excess")
+
+elif z_o>0 :
+    print(string1+" open paren excess")
+
+elif z_o<0 :
+    print(string1+" close paren excess")
+
+else :
+    print(string1+" MATCH")
