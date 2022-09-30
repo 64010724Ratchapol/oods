@@ -1,0 +1,93 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+  
+    def printList(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end="")
+            temp = temp.next
+  
+    def addToList(self, newData):
+        newNode = Node(newData)
+        if self.head is None:
+            self.head = newNode
+            return
+  
+        last = self.head
+        while last.next:
+            last = last.next
+  
+        last.next = newNode
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+          if current ==' ':
+                c
+          else:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+    
+    def printList(self):
+        temp = self.head
+        while(temp):
+            print (temp.data,end='')
+            temp = temp.next
+
+
+inp1,inp2 =input("Enter Input (L1,L2) : ").split()
+listA = LinkedList()
+listB = LinkedList()
+A = LinkedList()
+B = LinkedList()
+D = LinkedList()
+
+
+for i in (inp1):
+    if i!='-' and i!='>':
+        A.addToList(i)
+    elif i=='-' :
+        A.addToList(' ')
+for i in inp2:
+    if i!='-' and i!='>':
+        B.addToList(i)
+    elif i=='-' :
+        B.addToList(' ')
+
+
+print("L1    : ",end='') 
+A.printList()
+print()
+print("L2    : ",end='')
+B.printList()  
+print()
+'''
+B.reverse()
+print("Merge : ",end='')
+A.printList()
+print(' ',end='')
+B.printList()
+print("\n")
+'''
+#------no linked list-----#
+inp2 = inp2.split('->')   
+#inp2.sort()  
+
+print("Merge : ",end='')
+A.printList()
+print(' ',end='')
+for i in inp2[::-1]:
+  #  if i!='-' and i!='>':
+        print(i,end=' ')
+   # elif i=='-':
+   #     print(' ',end='')
