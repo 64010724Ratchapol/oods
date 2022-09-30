@@ -1,0 +1,293 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+    def getData(self):
+        return self.data
+    def getNext(self):
+        return self.next
+
+class  DoublyLinkedList :
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+    def __str__(self):
+        return str(self.elements)
+
+    def appendlist(self, new_data):
+        new_node = Node(new_data)
+        if self.head is None:
+            self.head = new_node
+            return new_data
+        last = self.head
+        while (last.next):
+            last = last.next
+        last.next =  new_node
+        return new_data
+        self.size += 1
+    def push(self, new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+        return new_data
+       # self.size += 1
+
+    def isEmpty(self):
+            return self.head.data is None
+
+    def deleteNode(self, key):
+         
+        temp = self.head
+        if (temp is not None):
+            if (temp.data == key):
+                self.head = temp.next
+                temp = None
+                return
+        while(temp is not None):
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+        if(temp == None):
+            return
+        prev.next = temp.next
+        temp = None
+       # self.size -= 1
+    def delete(self,index):
+        cur = self.head
+        for i in range(index):
+            cur = cur.next
+        if cur.prev != None and cur.next != None:
+            cur.prev.next = cur.next
+            cur.next.prev = cur.prev
+        elif cur.prev != None:
+            self.tail = cur.prev
+            cur.prev.next = None
+        elif cur.next != None:
+            self.head = cur.next
+            cur.next.prev = None
+        #self.size -= 1
+
+    def index(self, item):
+        pos = 0
+        current = self.head
+        found = False
+        while current is not None and not found:
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+                pos += 1
+        return pos
+        
+    def __str__(self) :
+        st = ''
+        cur = self.head
+        while cur:
+            if cur.next:
+                st += cur.data + '->'
+            else :
+                st += cur.data
+            cur = cur.next
+        return st
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+
+    def insert(self,index,data):
+        newNode = Node(data)
+        cur = self.head
+        for i in range(index):
+            cur = cur.next
+        if self.head == None:
+            self.head = newNode
+            self.tail = newNode
+        elif index == 0:
+            newNode.next = cur
+            cur.prev = newNode
+            self.head = newNode
+        elif index == self.size:
+            newNode.prev = self.tail
+            self.tail.next = newNode
+            self.tail = newNode
+        elif cur.prev != None:
+            newNode.next = cur
+            newNode.prev = cur.prev
+            cur.prev.next = newNode
+            cur.prev = newNode
+        
+        #self.size += 1
+
+l=DoublyLinkedList()
+
+inp = input("Enter Input : ").split(",") 
+l.size=0
+c=-1
+'B'=='Ab'
+for i in inp:
+
+    if i[1] =='b' :
+        ll,data = i.split('b ')
+        l.insert(0,data)
+        print("linked list :",l)
+        #c+=1
+        l.reverse()
+        print("reverse :",l) 
+        l.reverse() 
+        l.size+=1
+    elif i[2]=='b':
+        ll,data = i.split('Ab ')
+        l.insert(0,data)
+        print("linked list :",l)
+        #c+=1
+        l.reverse()
+        print("reverse :",l) 
+        l.reverse() 
+      #  l.size+=1
+
+    elif i[0] =='A':
+        ll,data = i.split(' ')
+        l.appendlist(data)
+        #l.insert(l.size,i[-1])
+        print("linked list :",l)  
+        #c+=1
+        l.reverse()
+        print("reverse :",l) 
+        l.reverse() 
+        #print(l.size) 
+        l.size+=1
+        #print(l.size)
+    
+    elif  i[1]=='A':
+        ll,data = i.split('A ')
+        l.appendlist(data)
+       # print("++++++++++++++++++++++++++++",i[2:])
+        #l.insert(l.size,i[-1])
+        print("linked list :",l)  
+        #c+=1
+        l.reverse()
+        print("reverse :",l) 
+        l.reverse() 
+        #print(l) 
+       # l.size+=1
+
+    elif i[0]=='I':
+        ll,data = i.split(' ')
+
+        p1,p2=data.split(':')
+        #print(p1)
+        #print(p2)
+        o=int(p1)
+        m=str(p2)
+        #print(m)
+        if o==1 and l.size==0  :
+            print("Data cannot be added")
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+        elif o==l.size+1:
+            #l.appendlist(i[:1])
+            l.insert(o,m)
+            print("linked list :",l)  
+            #c+=1
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+            l.size+=1
+        elif o==0 :
+            print("index =",o,"and data =",m)
+            l.insert(o,m)
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+            l.size+=1
+        elif o<0 or o>l.size+2:
+            print("Data cannot be added")
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+        else:
+            print("index =",o,"and data =",m)
+            l.insert(o,m)
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+            l.size+=1
+    elif i[1]=='I':
+        ll,data = i.split('I')
+        p1,p2=data.split(':')
+        o=int(p1)
+        m=str(p2)
+        if o>l.size+1:
+            print("index =",o,"and data =",m)
+            l.appendlist(m)
+    
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+            l.size+=1
+        elif o==0 :
+            print("index =",o,"and data =",m)
+            l.insert(o,m)
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+            l.size+=1
+            
+        elif o<0 :
+            print("Data cannot be added")
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()
+        else:
+            print("index =",o,"and data =",m)
+            l.insert(o,m)
+            print("linked list :",l)  
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse()       
+            l.size+=1
+    
+    elif i[0] =='R':  
+        ll,data = i.split(' ') 
+        if l.size<1: 
+            print("Not Found!")
+            print("linked list :",l)
+            print("reverse :",l) 
+        else:   
+            print("removed : "+data+" from index :",l.index(data))
+            l.deleteNode((data))
+            print("linked list :",l)      
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse() 
+            l.size-=1
+    elif i[1]=='R':   
+        ll,data = i.split('R ')
+        if l.size<1: 
+            print("Not Found!")
+            print("linked list :",l)
+            print("reverse :",l) 
+        else:     
+            print("removed : "+data+" from index :",l.index(data)) 
+            l.deleteNode(data)
+            print("linked list :",l)      
+            l.reverse()
+            print("reverse :",l) 
+            l.reverse() 
