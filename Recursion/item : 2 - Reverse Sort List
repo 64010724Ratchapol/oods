@@ -1,0 +1,23 @@
+def sort(nums: list) -> list:
+    if len(nums) <= 1:
+        return nums
+    else:
+        return (
+            sort([el for el in nums[1:] if el <= nums[0]])
+            + [nums[0]]
+            + sort([el for el in nums[1:] if el > nums[0]])
+        )
+
+def recursive(l):
+    if len(l) == 0:
+        return []  
+    else:
+        return [l.pop()] + recursive(l)  
+
+n= input("Enter your List : ").split(',')
+n = list(map(int,n))
+
+a=sort(n)
+b=recursive(a)
+
+print("List after Sorted :",b)
