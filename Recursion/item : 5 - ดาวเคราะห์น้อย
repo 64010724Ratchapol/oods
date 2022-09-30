@@ -1,0 +1,23 @@
+def asteroid_collision(asts):
+    
+    def process(s, ast):
+        if not s:
+            s.append(ast)
+        elif ast < 0 and s[-1] > 0:
+            if ast + s[-1] == 0:  
+                s.pop()
+            elif ast + s[-1] < 0: 
+                s.pop()
+                process(s, ast)
+        else:
+            s.append(ast)
+
+    s = []
+    for i in asts:
+        process(s, i)
+    return s
+
+x = input("Enter Input : ").split(",")
+x = list(map(int,x))
+#print(x)
+print(asteroid_collision(x))
