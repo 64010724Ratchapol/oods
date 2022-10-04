@@ -1,0 +1,11 @@
+#-------palindome--------#
+
+def palindome(n):
+    if n == n[::-1]:                        #--->ตัวหน้า เท่ากับตัวหลังฒ---๒
+       return "is palindrome"
+    else:
+        return "is not palindrome"
+
+inp =input("Enter : ")
+ans = palindome(inp)
+print("'"+inp+"'",ans)
