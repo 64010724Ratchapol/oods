@@ -1,0 +1,20 @@
+#---------- 1-N N-1 ----------#
+
+def print1_n(n):
+    if n>1:
+        print1_n(n-1)
+        print(n,end=' ')
+    else:
+        print(1,end=' ')
+
+def printn_1(n):
+    if n>1:
+        print(n,end=' ')
+        printn_1(n-1)
+    else :
+        print(1)
+
+n= input("Enter number : ")
+n= int(n)
+print1_n(n)
+printn_1(n)
