@@ -1,0 +1,11 @@
+#-------append------#
+
+def append(self,item):
+    data = Node(item)
+    if self.head == None:
+        self.head = data
+        self.tail = data
+    else :
+        data.prev = self.tail
+        self.tail.next = data
+        self.tail = data
