@@ -1,0 +1,12 @@
+#------------sort big to small------------#
+
+def sort(x):
+    if len(x)==1:
+        return list(map(int,x))
+    y = [int(max(x))]
+    x.remove(max(x))
+    return y+sort(x)
+
+inp=input("Enter your List : ").split(',')
+temp = list(map(int,inp))
+print("List after Sorted :",sort(temp))
