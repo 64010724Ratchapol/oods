@@ -1,0 +1,17 @@
+def gcd(x,y):
+    if y==0:
+       return abs(x)                    # abs=เเอปสรูท ออกเเต่ค่าบวก
+    else :
+        return gcd(x, x % y)
+
+a,b = input("Enter : ").split()
+a=int(a)
+b=int(b)
+if a>b:
+    max=a
+    min=b
+else:
+    max=b
+    min=a
+
+print("The gcd of", max ,"and", min ,"is :",gcd(a,b))
