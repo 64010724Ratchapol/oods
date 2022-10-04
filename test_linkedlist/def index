@@ -1,0 +1,12 @@
+#--------index---------#
+
+def index(self, item):
+    i=0
+    cur = self.head
+    while cur != None :
+        if cur.value == item :
+            return i
+        i+=1
+        cur = cur.next
+    i = -1
+    return i
