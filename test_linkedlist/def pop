@@ -1,0 +1,23 @@
+#---------pop----------#
+
+def pop(self, index):
+    cur = self.head
+    if cur == None or index>=self.size():
+        return "Out of Range"
+    else :
+        if index==0:
+            cur = cur.next
+            del cur
+        else:
+            for i in range(index):
+                cur = cur.next
+            if cur.prev != None and cur.next != None :
+                cur.prev.next = cur.next
+                cur.next.prev = cur.prev
+            elif cur.prev != None:
+                self.tail = cur.prev
+                cur.prev.next = None
+            elif cur.next != None :
+                self.head = cur.next
+                cur.next.prev = None
+        return "Success"
