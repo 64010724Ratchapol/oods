@@ -1,0 +1,25 @@
+#--------insert-------#
+
+def insert(self,index,item):
+    newNode = Node(item)
+    cur = self.head
+    if(index >= self.size()):
+        self.append(item)
+        return 
+    elif index <0 :
+        if(self.size()+index <= (-self.size())):
+            self.addHead(item)
+        else :
+            self.insert(self.size()+index,item) 
+    if index == 0:
+        cur.prev = newNode
+        newNode.next = cur
+        cur = newNode
+        return
+    for i in range(index):
+        cur = cur.next
+    newNode.next = cur
+    newNode.prev = cur.prev
+    cur.prev.next = newNode
+    cur.prev = newNode
+    return
