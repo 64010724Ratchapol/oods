@@ -1,0 +1,9 @@
+#-------size--------#
+
+def size(self):
+    c=0
+    cur = self.head
+    while cur:
+        c+=1
+        cur = cur.next
+    return c
