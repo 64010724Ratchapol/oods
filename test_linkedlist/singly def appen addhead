@@ -6,7 +6,8 @@
             while cur.next!=None:
                 cur=cur.next
             cur.next=Node(item)
-        else:self.head=Node(item)
+        else:
+           self.head=Node(item)
         
         
         
