@@ -1,0 +1,10 @@
+#-------search-------#
+
+def search(self, item):
+    data == "Not Found"
+    cur = self.head
+    while cur != None and data != "Found":
+        if cur.value == item :
+            data = "Found"
+        cur = cur.next
+    return data
