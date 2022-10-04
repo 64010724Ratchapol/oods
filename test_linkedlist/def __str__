@@ -1,0 +1,12 @@
+#-------__str__-------#
+
+def __str__(self):
+    cur = self.head
+    st = ''
+    while cur:
+        if cur.next :
+            st += str(cur.value) + ' '
+        else :
+            st += str(cur.value)
+        cur = cur.next
+    return st
