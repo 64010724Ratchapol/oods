@@ -1,0 +1,13 @@
+#--------addHead-------#
+
+def addHead(self, item):
+    data = Node(item)
+    data.next = self.head
+    if self.head != None :
+        self.head.prev = data
+        self.head = data
+        data.prev = None
+    else :
+        self.head = data
+        self.tail = data
+        data.prev = None
