@@ -1,0 +1,12 @@
+#-------__reverse__-------#
+
+def reverse(self):
+    st =''
+    cur = self.tail
+    while cur:
+        if cur.prev :
+            st += str(cur.value) + ' '
+        else :
+            st += str(cur.value)
+        cur = cur.prev
+    return st
