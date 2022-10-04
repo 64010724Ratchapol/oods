@@ -1,1 +1,157 @@
+#------Node------#
+class Node:
+    def __init__(self,value):
+        self.value = value
+        self.next = None
+        self.prev = None
+
+
+#------LinkedList------#
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        #self.size =0
+    #def.............
+
+
+#-------isEmpty--------#
+def isEmpty(self):
+    return self.head == None
+
+
+#-------__str__-------#
+def __str__(self):
+    cur = self.head
+    st = ''
+    while cur:
+        if cur.next :
+            st += str(cur.value) + ' '
+        else :
+            st += str(cur.value)
+        cur = cur.next
+    return st
+
+
+#-------__reverse__-------#
+def reverse(self):
+    st =''
+    cur = self.tail
+    while cur:
+        if cur.prev :
+            st += str(cur.value) + ' '
+        else :
+            st += str(cur.value)
+        cur = cur.prev
+    return st
+
+
+#-------append------#
+def append(self,item):
+    data = Node(item)
+    if self.head == None:
+        self.head = data
+        self.tail = data
+    else :
+        data.prev = self.tail
+        self.tail.next = data
+        self.tail = data
+
+
+#--------addHead-------#
+def addHead(self, item):
+    data = Node(item)
+    data.next = self.head
+    if self.head != None :
+        self.head.prev = data
+        self.head = data
+        data.prev = None
+    else :
+        self.head = data
+        self.tail = data
+        data.prev = None
+
+
+#-------size--------#
+def size(self):
+    c=0
+    cur = self.head
+    while cur:
+        c+=1
+        cur = cur.next
+    return c
+
+
+#-------search-------#
+def search(self, item):
+    data == "Not Found"
+    cur = self.head
+    while cur != None and data != "Found":
+        if cur.value == item :
+            data = "Found"
+        cur = cur.next
+    return data
+
+
+#--------index---------#
+def index(self, item):
+    i=0
+    cur = self.head
+    while cur != None :
+        if cur.value == item :
+            return i
+        i+=1
+        cur = cur.next
+    i = -1
+    return i
+    
+
+#--------insert-------#
+def insert(self,index,item):
+    newNode = Node(item)
+    cur = self.head
+    if(index >= self.size()):
+        self.append(item)
+        return 
+    elif index <0 :
+        if(self.size()+index <= (-self.size())):
+            self.addHead(item)
+        else :
+            self.insert(self.size()+index,item) 
+    if index == 0:
+        cur.prev = newNode
+        newNode.next = cur
+        cur = newNode
+        return
+    for i in range(index):
+        cur = cur.next
+    newNode.next = cur
+    newNode.prev = cur.prev
+    cur.prev.next = newNode
+    cur.prev = newNode
+    return
+
+
+#---------pop----------#
+def pop(self, index):
+    cur = self.head
+    if cur == None or index>=self.size():
+        return "Out of Range"
+    else :
+        if index==0:
+            cur = cur.next
+            del cur
+        else:
+            for i in range(index):
+                cur = cur.next
+            if cur.prev != None and cur.next != None :
+                cur.prev.next = cur.next
+                cur.next.prev = cur.prev
+            elif cur.prev != None:
+                self.tail = cur.prev
+                cur.prev.next = None
+            elif cur.next != None :
+                self.head = cur.next
+                cur.next.prev = None
+        return "Success"
 
