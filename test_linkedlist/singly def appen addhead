@@ -1,0 +1,21 @@
+ #-------append-------#  
+   
+   def append(self, item):
+        cur=self.head
+        if cur:
+            while cur.next!=None:
+                cur=cur.next
+            cur.next=Node(item)
+        else:self.head=Node(item)
+        
+        
+        
+  #-------addhead-------#       
+      
+    def addHead(self, item):
+        i=Node(item)
+        if self.head==None:
+            self.head=i
+        else:
+            i.next=self.head
+            self.head=i
