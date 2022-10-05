@@ -1,6 +1,10 @@
+#~~~~~~gdc~~~~~#
+
+ # abs = เเอปสรูท ให้ค่าเป็น +
+
 def gcd(x,y):
     if y==0:
-       return abs(x)                    # abs=เเอปสรูท ออกเเต่ค่าบวก
+       return abs(x)                  
     else :
         return gcd(x, x % y)
 
