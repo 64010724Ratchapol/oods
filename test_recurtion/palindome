@@ -1,7 +1,9 @@
 #-------palindome--------#
 
+   #--->ตัวหน้า เท่ากับตัวหลังฒ---#
+
 def palindome(n):
-    if n == n[::-1]:                        #--->ตัวหน้า เท่ากับตัวหลังฒ---๒
+    if n == n[::-1]:                     
        return "is palindrome"
     else:
         return "is not palindrome"
