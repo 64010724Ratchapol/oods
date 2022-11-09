@@ -1,0 +1,66 @@
+
+#-------  insert(1)  ---------#
+    def insert(self,node,data):
+        if node is None:
+            return Node(data)
+        if data == node.data:
+            return data
+        elif data < node.data:
+            node.left = self.insert(node.left,data)
+        elif data > node.data:
+            node.right = self.insert(node.right,data)
+        return node
+
+
+
+#-------  insert(2) -------# 
+    def insert(self,data):
+        if self.root == None :
+            self.root = Node(data)
+        else:
+            newNode = self.root
+            while True:
+                if data < newNode.data :
+                    if newNode.left :
+                        newNode = newNode.left
+                    else:
+                        newNode.left =  Node(data)
+                        break
+                elif data > newNode.data:
+                    if newNode.right:
+                        newNode = newNode.right
+                    else :
+                        newNode.right = Node(data)
+                        break
+                else:
+                    break
+        return self.root
+        
+        
+
+#-------  heieht of tree  --------#
+    def height(self,node):
+        if node is None:
+            return 0
+        else:
+            return 1 + max(self.height(node.left),self.height(node.right))
+
+
+
+#-------  maximum  -------#
+    def maximum(self):
+        if self.root is not None:
+            cur = self.root
+            while cur.right != None:
+                cur = cur.right
+            return cur
+
+
+
+#-------  minimum  -------#
+    def minimum(self):
+        if self.root != None:
+            cur = self.root
+            while cur.left != None:
+                cur = cur.left
+            return cur
