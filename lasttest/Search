@@ -1,1 +1,50 @@
-#search
+#search#
+
+
+#--- Binary Search ---#
+
+def bi_search(l,r,a,x):
+    if r>=l:
+        mid = (r+l)//2
+        if a[mid] == x:
+            return True
+        elif a[mid] > x :
+            return bi_search(l,mid-1,a,x)
+        else:
+            return bi_search(mid+1,r,a,x)
+    else:
+        return False 
+
+inp = input('Enter Input : ').split('/')
+arr, k = list(map(int, inp[0].split())), int(inp[1])
+print(bi_search(0, len(arr) - 1, sorted(arr), k))
+
+----------------------------------------------------------
+
+
+#--- First Greater Value ---#
+
+arr,k = input('Enter Input : ').split('/')
+e=[]
+q=[]
+for i in arr.split() :
+    e.append(int(i))
+for i in k.split():
+    q.append(int(i))
+
+v= sorted(e)
+
+print(e)
+print(q)
+
+for i in q:
+    isF = True
+    for j in v:
+        if i<j:
+            print(j)
+            isF = False
+            break
+    if isF == True:
+        print("Noooooooooooo")
+        
+        
