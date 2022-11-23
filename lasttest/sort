@@ -1,1 +1,146 @@
-#sort
+#  sort  #
+
+#----- เรียง str -----#
+
+def sort(x):
+    for i in range(len(x)):
+        for j in range(len(x)):
+            if x[j] > x[i] :
+                x[j],x[i] = x[i],x[j]
+    return x 
+x=input("Number : ").split()
+print(x)
+print(sort(x))
+
+
+#--------------------------------------------#
+
+
+#----- เรียง int -----#
+
+def Sort(x):
+    for i in range(len(x)):
+        for j in range(len(x)):
+            if x[j] > x[i] :
+                x[j],x[i] = x[i],x[j]
+    return x
+
+x=input("Number : ").split()
+print(x)
+o=[]
+for i in x :
+    o.append(int(i))
+print(Sort(o))
+
+
+#--------------------------------------------#
+
+
+#--- bubble sort [recursive] ---#
+
+def bubble(a,i,j,n):
+    if j == n:
+        i = i+1
+        j=0
+    if i == n:
+        return
+    if a[j] >a[i]:
+        temp = a[i]
+        a[i] = a[j]
+        a[j] = temp
+        bubble(a,i,j+1,n)
+    else:
+        bubble(a,i,j+1,n)
+    return a
+
+inp = input("Enter : ").split()
+for i in inp:
+    b = bubble(inp,0,0,len(inp))
+e=[]
+for i in b:
+    e.append(int(i))
+print(e)
+
+
+#--------------------------------------------#
+
+
+#----- somethingDROME -----#
+
+e=[]
+inp = input("lll :")
+for i in str(inp) :
+    e.append(int(i))
+print(e)
+
+x = 0
+
+if(all(e[i] > e[i+1] for i in range(len(e)-1))):
+    x=1
+else:
+    x=2
+
+
+#--------------------------------------------#
+
+
+#--- เรียงลำดับโดยไม่สนจำนวนเต็มลบ ---#
+
+inp = [int(i) for i in input("oooooooo : ").split()]
+po=[]
+neg=[]
+
+for i in range(len(inp)):
+    if inp[i] <0 :
+        neg.append((inp[i],i))
+    else:
+        po.append(int[i])
+
+l= po
+def sort(x):
+    for i in range(len(x)):
+        for j in range(len(x)):
+            if x[j] > x[i] :
+                x[j],x[i] = x[i],x[j]
+    return x
+sort(l)
+for i in neg:
+    l.insert(i[1],i[0])
+for i in l:
+    print(i,end=' ')
+
+
+#--------------------------------------------#
+
+
+#----- Sort by alphabet -----#
+
+def sort(x):
+    for i in range(len(x)):
+        for j in range(len(x)):
+            if x[j] > x[i] :
+                x[j],x[i] = x[i],x[j]
+    return x
+w=[]
+p=[]
+v=[]
+j=[]
+inp = input("Enter Input : ").split()
+
+for i in inp :
+    for e in i:
+        if e != '0' and e !='1' and e !='2' and e !='3'  and e !='4'  and e !='5' and e !='6' and e !='7' and e !='8' and e !='9':
+            w.append(e)
+            j.append(e)
+    
+sort(w)
+
+k=0
+while k < len(w):
+    v.append(j.insert(w[k]))
+    k+=1
+
+m=0
+while m < len(w):
+    print(inp[v[m]],end=' ')
+    m+=1
